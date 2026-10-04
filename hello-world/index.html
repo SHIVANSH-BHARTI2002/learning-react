@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World - React</title>
+    <!-- React + ReactDOM loaded from CDN (no build step / no npm install needed) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel compiles the JSX below in the browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background: #282c34;
+        color: #fff;
+      }
+      .app {
+        text-align: center;
+      }
+      .count {
+        font-size: 2rem;
+        margin: 1rem 0;
+      }
+      button {
+        font-size: 1rem;
+        padding: 0.5rem 1.25rem;
+        border: none;
+        border-radius: 6px;
+        background: #61dafb;
+        color: #282c34;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState } = React;
+
+      function App() {
+        const [count, setCount] = useState(0);
+        return (
+          <div className="app">
+            <h1>Hello, World! 👋</h1>
+            <p>This is a React app.</p>
+            <div className="count">Count: {count}</div>
+            <button onClick={() => setCount(count + 1)}>Click me</button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
